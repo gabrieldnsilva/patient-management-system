@@ -1,5 +1,6 @@
 package com.pms.patientservice.exception;
 
+import org.apache.coyote.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -40,8 +41,16 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.badRequest().body(errors);
 
+    }
 
+    @ExceptionHandler(PatientNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handlePatientNotFoundException(PatientNotFoundException ex){
+        log.warn("Patient not found: {}", ex.getMessage());
 
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Patient not found");
+
+        return ResponseEntity.badRequest().body(errors);
     }
 
 }
