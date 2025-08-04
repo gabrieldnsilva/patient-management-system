@@ -1,0 +1,11 @@
+### Updates an existing patient entity
+PUT http://localhost:4000/patients/f8a9b0c1-d2e3-4567-8901-789012345678
+Content-Type: application/json
+
+{
+  "name": "Sofia Nogueira",
+  "email": "sofia.nogueira@updated.com.br",
+  "address": "Estrada do Coco, Km 10, Lauro de Freitas, BA",
+  "dateOfBirth": "1996-09-20"
+}
+###
